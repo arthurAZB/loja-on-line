@@ -10,9 +10,20 @@
 
   <header>
     <h1>Minha Loja Tech</h1>
-    <button class="carrinho-btn" onclick="toggleCarrinho()">
-      🛒 Carrinho (<span id="qtd-carrinho">0</span>)
-    </button>
+    
+    <!-- Barra de Pesquisa -->
+    <div class="busca-container">
+      <input type="text" id="campo-busca" placeholder="Buscar produtos..." oninput="filtrarProdutos()">
+    </div>
+
+    <div class="header-acoes">
+      <button class="tema-btn" id="tema-btn" onclick="alternarTema()">
+        🌙 Modo Escuro
+      </button>
+      <button class="carrinho-btn" onclick="toggleCarrinho()">
+        🛒 Carrinho (<span id="qtd-carrinho">0</span>)
+      </button>
+    </div>
   </header>
 
   <div class="carrinho-overlay" id="carrinho-overlay" onclick="toggleCarrinho()"></div>
@@ -56,7 +67,6 @@
 
       <button class="banner-btn next" onclick="mudarBanner(1)">&#10095;</button>
 
-      <!-- Indicadores (Pontos) -->
       <div class="banner-indicadores">
         <span class="ponto ativo" onclick="irParaBanner(0)"></span>
         <span class="ponto" onclick="irParaBanner(1)"></span>
