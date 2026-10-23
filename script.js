@@ -1,41 +1,41 @@
-// Lista dos 36 produtos
+// Lista dos 36 produtos personalizados com nomes, caminhos de imagens e preços condizentes
 const produtos = [
-  { id: 1, nome: "Produto 1", preco: 149.90, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" },
-  { id: 2, nome: "Produto 2", preco: 299.00, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" },
-  { id: 3, nome: "Produto 3", preco: 220.50, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&q=80" },
-  { id: 4, nome: "Produto 4", preco: 89.90, img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400&q=80" },
-  { id: 5, nome: "Produto 5", preco: 1199.00, img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&q=80" },
-  { id: 6, nome: "Produto 6", preco: 259.90, img: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&q=80" },
-  { id: 7, nome: "Produto 7", preco: 189.00, img: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&q=80" },
-  { id: 8, nome: "Produto 8", preco: 310.00, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80" },
-  { id: 9, nome: "Produto 9", preco: 849.00, img: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&q=80" },
-  { id: 10, nome: "Produto 10", preco: 59.90, img: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=400&q=80" },
-  { id: 11, nome: "Produto 11", preco: 199.90, img: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&q=80" },
-  { id: 12, nome: "Produto 12", preco: 139.00, img: "https://images.unsplash.com/photo-1625842268584-8f3296236761?w=400&q=80" },
-  { id: 13, nome: "Produto 13", preco: 349.90, img: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80" },
-  { id: 14, nome: "Produto 14", preco: 289.00, img: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&q=80" },
-  { id: 15, nome: "Produto 15", preco: 79.90, img: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80" },
-  { id: 16, nome: "Produto 16", preco: 99.00, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&q=80" },
-  { id: 17, nome: "Produto 17", preco: 119.90, img: "https://images.unsplash.com/photo-1622445268121-da118181293d?w=400&q=80" },
-  { id: 18, nome: "Produto 18", preco: 169.00, img: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=400&q=80" },
-  { id: 19, nome: "Produto 19", preco: 450.00, img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&q=80" },
-  { id: 20, nome: "Produto 20", preco: 85.00, img: "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&q=80" },
-  { id: 21, nome: "Produto 21", preco: 189.90, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80" },
-  { id: 22, nome: "Produto 22", preco: 49.90, img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80" },
-  { id: 23, nome: "Produto 23", preco: 69.90, img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=400&q=80" },
-  { id: 24, nome: "Produto 24", preco: 35.00, img: "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=400&q=80" },
-  { id: 25, nome: "Produto 25", preco: 389.00, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80" },
-  { id: 26, nome: "Produto 26", preco: 1499.00, img: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=400&q=80" },
-  { id: 27, nome: "Produto 27", preco: 599.00, img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&q=80" },
-  { id: 28, nome: "Produto 28", preco: 799.00, img: "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400&q=80" },
-  { id: 29, nome: "Produto 29", preco: 279.90, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&q=80" },
-  { id: 30, nome: "Produto 30", preco: 129.90, img: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&q=80" },
-  { id: 31, nome: "Produto 31", preco: 199.00, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&q=80" },
-  { id: 32, nome: "Produto 32", preco: 59.00, img: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=400&q=80" },
-  { id: 33, nome: "Produto 33", preco: 989.00, img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&q=80" },
-  { id: 34, nome: "Produto 34", preco: 79.90, img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80" },
-  { id: 35, nome: "Produto 35", preco: 703.91, img: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&q=80" },
-  { id: 36, nome: "Produto 36", preco: 119.00, img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&q=80" }
+  { id: 1, nome: "Bebida sabor Windows", preco: 14.90, img: "./imagens/bebida windows.jpg" },
+  { id: 2, nome: "Cadeira Gamer Batman", preco: 1299.00, img: "./imagens/cadeira gamer batman.jpg" },
+  { id: 3, nome: "Cadeira Gamer Multiusos", preco: 899.90, img: "./imagens/cadeira gamer multiusos.jpg" },
+  { id: 4, nome: "CD ChatGPT Offline", preco: 49.90, img: "./imagens/CD chat gpt of line.jpg" },
+  { id: 5, nome: "Chinelo para Programação", preco: 39.90, img: "./imagens/chinelo para programaçao.jpg" },
+  { id: 6, nome: "Ciber Cruz", preco: 79.90, img: "./imagens/ciber cruz.jpg" },
+  { id: 7, nome: "Conjunto de Teclado Fruitaero", preco: 249.90, img: "./imagens/conjunto de teclado fruitaero.jpg" },
+  { id: 8, nome: "Controle Cromado a Ouro", preco: 599.00, img: "./imagens/controle cromado a ouro.jpg" },
+  { id: 9, nome: "Livro Cibertec", preco: 65.00, img: "./imagens/livro cibertec.jpg" },
+  { id: 10, nome: "Martelo Lendário Inquebrável Nokia", preco: 9999.00, img: "./imagens/martelo lendario inquebravel nokia.jpg" },
+  { id: 11, nome: "Mouse Carrinho", preco: 69.90, img: "./imagens/mause carrinho.jpg" },
+  { id: 12, nome: "Mouse Escorpião Perigoso", preco: 119.90, img: "./imagens/mause escorpiao perigoso.jpg" },
+  { id: 13, nome: "Mouse Pet", preco: 89.90, img: "./imagens/mause pet.jpg" },
+  { id: 14, nome: "Mouse Tank", preco: 159.90, img: "./imagens/mause tank.jpg" },
+  { id: 15, nome: "Moletom para Programadores", preco: 139.90, img: "./imagens/moletom para programadores.jpg" },
+  { id: 16, nome: "Óculos de Realidade Virtual", preco: 1499.00, img: "./imagens/oculos de realidade virtual.jpg" },
+  { id: 17, nome: "Papel Higiênico Tecnológico", preco: 29.90, img: "./imagens/papel higienico tecnologico.jpg" },
+  { id: 18, nome: "PC Econômico Montado", preco: 1899.00, img: "./imagens/pc economico montado.jpg" },
+  { id: 19, nome: "PC Gamer Simples e Econômico", preco: 2499.00, img: "./imagens/pc gamer simples e economico montado.jpg" },
+  { id: 20, nome: "PC Montado Simples", preco: 1599.00, img: "./imagens/pc montado simples.jpg" },
+  { id: 21, nome: "PC Montado Última Geração", preco: 8999.00, img: "./imagens/pc montado ultima geraçao.jpg" },
+  { id: 22, nome: "PC Simples Montado", preco: 1399.00, img: "./imagens/pc simples montado.jpg" },
+  { id: 23, nome: "PC Super Tecnológico Montado", preco: 11999.00, img: "./imagens/pc super tecnologico montado.jpg" },
+  { id: 24, nome: "PC Transparente Tecnológico", preco: 14999.00, img: "./imagens/pc transparente tecnologico.jpg" },
+  { id: 25, nome: "Pen Drive Sabor KitKat", preco: 45.00, img: "./imagens/pen drive sabor kitkat.jpg" },
+  { id: 26, nome: "PlayStation Azul Transparente", preco: 3200.00, img: "./imagens/playstation azul transparente.jpg" },
+  { id: 27, nome: "Ponta de Lança Tecnológica", preco: 189.90, img: "./imagens/ponta de lança tecnologica.jpg" },
+  { id: 28, nome: "RTX Pequena", preco: 1899.00, img: "./imagens/RTX pequena.jpg" },
+  { id: 29, nome: "Teclado Arma Sônica", preco: 349.90, img: "./imagens/teclado arma sonica.jpg" },
+  { id: 30, nome: "Teclado Batman", preco: 299.90, img: "./imagens/teclado batman.jpg" },
+  { id: 31, nome: "Teclado Cubo Mágico", preco: 179.90, img: "./imagens/teclado cubo magico.jpg" },
+  { id: 32, nome: "Teclado Granada Funcional com LED", preco: 229.90, img: "./imagens/teclado granada funcional com led.jpg" },
+  { id: 33, nome: "Teclado Granada Funcional", preco: 189.90, img: "./imagens/teclado granada funcional.jpg" },
+  { id: 34, nome: "Teclado Holográfico", preco: 499.00, img: "./imagens/teclado holografico.jpg" },
+  { id: 35, nome: "Terno para Programadores", preco: 399.90, img: "./imagens/terno para programadores.jpg" },
+  { id: 36, nome: "Trono dos Teclados", preco: 2899.00, img: "./imagens/trono dos teclados.jpg" }
 ];
 
 let carrinho = [];
@@ -96,7 +96,7 @@ setInterval(() => {
 function gerarSvgReserva(nome) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
     <rect width="100%" height="100%" fill="#e2e8f0"/>
-    <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#2c3e50" dominant-baseline="middle" text-anchor="middle">${nome}</text>
+    <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50" dominant-baseline="middle" text-anchor="middle">${nome}</text>
   </svg>`;
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }
