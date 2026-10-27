@@ -1,6 +1,6 @@
-// Lista dos 36 produtos personalizados com nomes, caminhos de imagens e preços condizentes
+// Lista dos 43
 const produtos = [
-  { id: 1, nome: "Bebida sabor Windows", preco: 14.90, img: "./imagens/bebida windows.jpg" },
+  { id: 1, nome: "Bebida Windows", preco: 14.90, img: "./imagens/bebida windows.jpg" },
   { id: 2, nome: "Cadeira Gamer Batman", preco: 1299.00, img: "./imagens/cadeira gamer batman.jpg" },
   { id: 3, nome: "Cadeira Gamer Multiusos", preco: 899.90, img: "./imagens/cadeira gamer multiusos.jpg" },
   { id: 4, nome: "CD ChatGPT Offline", preco: 49.90, img: "./imagens/CD chat gpt of line.jpg" },
@@ -22,7 +22,7 @@ const produtos = [
   { id: 20, nome: "PC Montado Simples", preco: 1599.00, img: "./imagens/pc montado simples.jpg" },
   { id: 21, nome: "PC Montado Última Geração", preco: 8999.00, img: "./imagens/pc montado ultima geraçao.jpg" },
   { id: 22, nome: "PC Simples Montado", preco: 1399.00, img: "./imagens/pc simples montado.jpg" },
-  { id: 23, nome: "PC Super Tecnológico Montado", preco: 11999.00, img: "./imagens/pc super tecnologico montado.jpg" },
+  { id: 23, nome: "PC Super Tecnologico Montado", preco: 11999.00, img: "./imagens/pc super tecnologico montado.jpg" },
   { id: 24, nome: "PC Transparente Tecnológico", preco: 14999.00, img: "./imagens/pc transparente tecnologico.jpg" },
   { id: 25, nome: "Pen Drive Sabor KitKat", preco: 45.00, img: "./imagens/pen drive sabor kitkat.jpg" },
   { id: 26, nome: "PlayStation Azul Transparente", preco: 3200.00, img: "./imagens/playstation azul transparente.jpg" },
@@ -35,50 +35,35 @@ const produtos = [
   { id: 33, nome: "Teclado Granada Funcional", preco: 189.90, img: "./imagens/teclado granada funcional.jpg" },
   { id: 34, nome: "Teclado Holográfico", preco: 499.00, img: "./imagens/teclado holografico.jpg" },
   { id: 35, nome: "Terno para Programadores", preco: 399.90, img: "./imagens/terno para programadores.jpg" },
-  { id: 36, nome: "Trono dos Teclados", preco: 2899.00, img: "./imagens/trono dos teclados.jpg" }
+  { id: 36, nome: "Trono dos Teclados", preco: 2899.00, img: "./imagens/trono dos teclados.jpg" },
+  { id: 37, nome: "Xícara Android", preco: 49.90, img: "./imagens/xicara android.jpg" },
+  { id: 38, nome: "Camiseta de Circuitos Metálicos Funcional", preco: 89.90, img: "./imagens/camiseta de circuitos metatlicos funcional.jpg" },
+  { id: 39, nome: "Bananas Fone", preco: 79.90, img: "./imagens/bananas fone.jpg" },
+  { id: 40, nome: "Controle de PlayStation Edição Primal", preco: 449.90, img: "./imagens/controle de playstation edição primal.jpg" },
+  { id: 41, nome: "Controle de Xbox Edição Primal", preco: 449.90, img: "./imagens/controle de xbox edição primal.jpg" },
+  { id: 42, nome: "Travesseiros de Bateria de Lítio", preco: 119.90, img: "./imagens/travesseiros de bateria de litio.jpg" },
+  { id: 43, nome: "Bebida de Caixinha Windows", preco: 16.90, img: "./imagens/bebida de caixinha windows.jpg" }
 ];
 
 let carrinho = [];
+let bannerAtual = 0;
 
-/* Alternar Tema (Modo Claro / Escuro) */
+/* Modo Claro / Escuro */
 function alternarTema() {
-  const body = document.body;
-  const btn = document.getElementById("tema-btn");
-  
-  body.classList.toggle("modo-escuro");
-  const ehEscuro = body.classList.contains("modo-escuro");
-
-  btn.innerHTML = ehEscuro ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+  const ehEscuro = document.body.classList.toggle("modo-escuro");
+  document.getElementById("tema-btn").innerHTML = ehEscuro ? " Modo Claro" : " Modo Escuro";
   localStorage.setItem("tema_escuro", ehEscuro);
 }
 
-function carregarTemaSalvo() {
-  const ehEscuro = localStorage.getItem("tema_escuro") === "true";
-  if (ehEscuro) {
-    document.body.classList.add("modo-escuro");
-    document.getElementById("tema-btn").innerHTML = "☀️ Modo Claro";
-  }
-}
-
-/* Lógica do Carrossel de Banner */
-let bannerAtual = 0;
-const totalBanners = 3;
-
+/* Banner de Propaganda */
 function mostrarBanner(index) {
   const slides = document.querySelectorAll(".slide");
   const pontos = document.querySelectorAll(".ponto");
+  
+  bannerAtual = (index + slides.length) % slides.length;
 
-  if (index >= totalBanners) bannerAtual = 0;
-  else if (index < 0) bannerAtual = totalBanners - 1;
-  else bannerAtual = index;
-
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("ativo", i === bannerAtual);
-  });
-
-  pontos.forEach((ponto, i) => {
-    ponto.classList.toggle("ativo", i === bannerAtual);
-  });
+  slides.forEach((slide, i) => slide.classList.toggle("ativo", i === bannerAtual));
+  pontos.forEach((ponto, i) => ponto.classList.toggle("ativo", i === bannerAtual));
 }
 
 function mudarBanner(direcao) {
@@ -89,71 +74,46 @@ function irParaBanner(index) {
   mostrarBanner(index);
 }
 
-setInterval(() => {
-  mudarBanner(1);
-}, 5000);
+setInterval(() => mudarBanner(1), 5000);
 
-function gerarSvgReserva(nome) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
-    <rect width="100%" height="100%" fill="#e2e8f0"/>
-    <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50" dominant-baseline="middle" text-anchor="middle">${nome}</text>
-  </svg>`;
-  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
-}
-
-/* Função para Renderizar Produtos */
+/* Renderização e Busca de Produtos */
 function carregarProdutos(lista = produtos) {
   const container = document.getElementById("grid-produtos");
-  container.innerHTML = "";
-
+  
   if (lista.length === 0) {
-    container.innerHTML = '<p class="sem-produtos">Nenhum produto encontrado com essa busca.</p>';
+    container.innerHTML = '<p class="sem-produtos">Nenhum produto encontrado.</p>';
     return;
   }
 
-  lista.forEach(produto => {
-    const card = document.createElement("div");
-    card.className = "card-produto";
-    
-    const svgReserva = gerarSvgReserva(produto.nome);
-
-    card.innerHTML = `
-      <img src="${produto.img}" 
-           alt="${produto.nome}" 
-           class="img-produto" 
-           loading="lazy"
-           onerror="this.onerror=null; this.src='${svgReserva}';">
-      <h3>${produto.nome}</h3>
-      <p class="preco">R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
-      <button onclick="adicionarAoCarrinho(${produto.id})">Adicionar ao Carrinho</button>
-    `;
-    container.appendChild(card);
-  });
+  container.innerHTML = lista.map(p => `
+    <div class="card-produto">
+      <img src="${p.img}" alt="${p.nome}" class="img-produto" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponivel'">
+      <h3>${p.nome}</h3>
+      <p class="preco">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
+      <button onclick="adicionarAoCarrinho(${p.id})">Adicionar ao Carrinho</button>
+    </div>
+  `).join('');
 }
 
-/* Função de Filtrar Produtos na Busca */
 function filtrarProdutos() {
   const termo = document.getElementById("campo-busca").value.toLowerCase().trim();
-  const produtosFiltrados = produtos.filter(p => p.nome.toLowerCase().includes(termo));
-  carregarProdutos(produtosFiltrados);
+  carregarProdutos(produtos.filter(p => p.nome.toLowerCase().includes(termo)));
 }
 
-/* Lógica do Carrinho */
+/* Gestão do Carrinho */
 function toggleCarrinho() {
   document.getElementById("carrinho-painel").classList.toggle("aberto");
   document.getElementById("carrinho-overlay").classList.toggle("ativo");
 }
 
 function adicionarAoCarrinho(idProduto) {
-  const produtoExistente = carrinho.find(item => item.id === idProduto);
-
-  if (produtoExistente) {
-    produtoExistente.quantidade++;
+  const item = carrinho.find(i => i.id === idProduto);
+  if (item) {
+    item.quantidade++;
   } else {
-    const produtoOriginal = produtos.find(p => p.id === idProduto);
-    carrinho.push({ ...produtoOriginal, quantidade: 1 });
+    const produto = produtos.find(p => p.id === idProduto);
+    carrinho.push({ ...produto, quantidade: 1 });
   }
-
   atualizarCarrinho();
 }
 
@@ -162,63 +122,55 @@ function alterarQuantidade(idProduto, mudanca) {
   if (!item) return;
 
   item.quantidade += mudanca;
-
   if (item.quantidade <= 0) {
     carrinho = carrinho.filter(i => i.id !== idProduto);
   }
-
   atualizarCarrinho();
 }
 
 function atualizarCarrinho() {
   const containerItens = document.getElementById("carrinho-itens");
-  const totalElemento = document.getElementById("carrinho-total");
-  const qtdContador = document.getElementById("qtd-carrinho");
-
-  containerItens.innerHTML = "";
-
   let total = 0;
   let totalItens = 0;
 
   if (carrinho.length === 0) {
     containerItens.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio.</p>';
   } else {
-    carrinho.forEach(item => {
+    containerItens.innerHTML = carrinho.map(item => {
       total += item.preco * item.quantidade;
       totalItens += item.quantidade;
-
-      const divItem = document.createElement("div");
-      divItem.className = "item-carrinho";
-      divItem.innerHTML = `
-        <div class="item-info">
-          <h4>${item.nome}</h4>
-          <p>R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
-        </div>
-        <div class="item-qtd-controles">
-          <button onclick="alterarQuantidade(${item.id}, -1)">-</button>
-          <span>${item.quantidade}</span>
-          <button onclick="alterarQuantidade(${item.id}, 1)">+</button>
+      return `
+        <div class="item-carrinho">
+          <div class="item-info">
+            <h4>${item.nome}</h4>
+            <p>R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
+          </div>
+          <div class="item-qtd-controles">
+            <button onclick="alterarQuantidade(${item.id}, -1)">-</button>
+            <span>${item.quantidade}</span>
+            <button onclick="alterarQuantidade(${item.id}, 1)">+</button>
+          </div>
         </div>
       `;
-      containerItens.appendChild(divItem);
-    });
+    }).join('');
   }
 
-  totalElemento.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
-  qtdContador.innerText = totalItens;
+  document.getElementById("carrinho-total").innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+  document.getElementById("qtd-carrinho").innerText = totalItens;
 }
 
 function finalizarCompra() {
-  if (carrinho.length === 0) {
-    alert("Seu carrinho está vazio!");
-    return;
-  }
+  if (carrinho.length === 0) return alert("Seu carrinho está vazio!");
   alert("Compra finalizada com sucesso!");
   carrinho = [];
   atualizarCarrinho();
   toggleCarrinho();
 }
 
-// Inicializações
-carregarTemaSalvo();
+/* Inicialização */
+if (localStorage.getItem("tema_escuro") === "true") {
+  document.body.classList.add("modo-escuro");
+  document.getElementById("tema-btn").innerHTML = " Modo Claro";
+}
+
 carregarProdutos();
