@@ -1,10 +1,10 @@
-// Lista dos 43
+// Lista dos 43 produtos cadastrados
 const produtos = [
   { id: 1, nome: "Bebida Windows", preco: 14.90, img: "./imagens/bebida windows.jpg" },
   { id: 2, nome: "Cadeira Gamer Batman", preco: 1299.00, img: "./imagens/cadeira gamer batman.jpg" },
   { id: 3, nome: "Cadeira Gamer Multiusos", preco: 899.90, img: "./imagens/cadeira gamer multiusos.jpg" },
   { id: 4, nome: "CD ChatGPT Offline", preco: 49.90, img: "./imagens/CD chat gpt of line.jpg" },
-  { id: 5, nome: "Chinelo para Programação", preco: 39.90, img: "./imagens/chinelo para programaçao.jpg" },
+  { id: 5, nome: "Chinelo para Programação", preco: 39.90, img: "./imagens/chinelo para programação.jpg" },
   { id: 6, nome: "Ciber Cruz", preco: 79.90, img: "./imagens/ciber cruz.jpg" },
   { id: 7, nome: "Conjunto de Teclado Fruitaero", preco: 249.90, img: "./imagens/conjunto de teclado fruitaero.jpg" },
   { id: 8, nome: "Controle Cromado a Ouro", preco: 599.00, img: "./imagens/controle cromado a ouro.jpg" },
@@ -18,11 +18,11 @@ const produtos = [
   { id: 16, nome: "Óculos de Realidade Virtual", preco: 1499.00, img: "./imagens/oculos de realidade virtual.jpg" },
   { id: 17, nome: "Papel Higiênico Tecnológico", preco: 29.90, img: "./imagens/papel higienico tecnologico.jpg" },
   { id: 18, nome: "PC Econômico Montado", preco: 1899.00, img: "./imagens/pc economico montado.jpg" },
-  { id: 19, nome: "PC Gamer Simples e Econômico", preco: 2499.00, img: "./imagens/pc gamer simples e economico montado.jpg" },
+  { id: 19, nome: "PC Gamer Simples e Econômico", preco: 2499.00, img: "./imagens/pc gamer simples e economico mont...jpg" },
   { id: 20, nome: "PC Montado Simples", preco: 1599.00, img: "./imagens/pc montado simples.jpg" },
   { id: 21, nome: "PC Montado Última Geração", preco: 8999.00, img: "./imagens/pc montado ultima geraçao.jpg" },
   { id: 22, nome: "PC Simples Montado", preco: 1399.00, img: "./imagens/pc simples montado.jpg" },
-  { id: 23, nome: "PC Super Tecnologico Montado", preco: 11999.00, img: "./imagens/pc super tecnologico montado.jpg" },
+  { id: 23, nome: "PC Super Tecnológico Montado", preco: 11999.00, img: "./imagens/pc super tecnologico montado.jpg" },
   { id: 24, nome: "PC Transparente Tecnológico", preco: 14999.00, img: "./imagens/pc transparente tecnologico.jpg" },
   { id: 25, nome: "Pen Drive Sabor KitKat", preco: 45.00, img: "./imagens/pen drive sabor kitkat.jpg" },
   { id: 26, nome: "PlayStation Azul Transparente", preco: 3200.00, img: "./imagens/playstation azul transparente.jpg" },
@@ -51,7 +51,7 @@ let bannerAtual = 0;
 /* Modo Claro / Escuro */
 function alternarTema() {
   const ehEscuro = document.body.classList.toggle("modo-escuro");
-  document.getElementById("tema-btn").innerHTML = ehEscuro ? " Modo Claro" : " Modo Escuro";
+  document.getElementById("tema-btn").innerHTML = ehEscuro ? "☀️ Modo Claro" : "🌙 Modo Escuro";
   localStorage.setItem("tema_escuro", ehEscuro);
 }
 
@@ -161,16 +161,22 @@ function atualizarCarrinho() {
 
 function finalizarCompra() {
   if (carrinho.length === 0) return alert("Seu carrinho está vazio!");
-  alert("Compra finalizada com sucesso!");
+  
+  toggleCarrinho();
+  document.getElementById("modal-sucesso").classList.add("ativo");
+  
   carrinho = [];
   atualizarCarrinho();
-  toggleCarrinho();
+}
+
+function fecharModalSucesso() {
+  document.getElementById("modal-sucesso").classList.remove("ativo");
 }
 
 /* Inicialização */
 if (localStorage.getItem("tema_escuro") === "true") {
   document.body.classList.add("modo-escuro");
-  document.getElementById("tema-btn").innerHTML = " Modo Claro";
+  document.getElementById("tema-btn").innerHTML = "☀️ Modo Claro";
 }
 
 carregarProdutos();
