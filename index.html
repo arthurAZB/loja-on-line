@@ -17,22 +17,31 @@
 
     <div class="header-acoes">
       <button class="tema-btn" id="tema-btn" onclick="alternarTema()">
-         Modo Escuro
+        🌙 Modo Escuro
       </button>
       <button class="carrinho-btn" onclick="toggleCarrinho()">
-         Carrinho (<span id="qtd-carrinho">0</span>)
+        🛒 Carrinho (<span id="qtd-carrinho">0</span>)
       </button>
     </div>
   </header>
 
   <div class="carrinho-overlay" id="carrinho-overlay" onclick="toggleCarrinho()"></div>
 
+  <!-- Modal de Zoom da Imagem -->
+  <div class="modal-zoom" id="modal-zoom" onclick="fecharZoom()">
+    <div class="zoom-conteudo" onclick="event.stopPropagation()">
+      <button class="fechar-zoom" onclick="fecharZoom()">&times;</button>
+      <img id="img-zoom-destaque" src="" alt="Zoom do Produto">
+      <h3 id="titulo-zoom-destaque"></h3>
+    </div>
+  </div>
+
   <!-- Modal de Sucesso da Compra -->
   <div class="modal-sucesso" id="modal-sucesso">
     <div class="modal-conteudo">
       <div class="icone-sucesso">✅</div>
       <h2>Pedido Finalizado com Sucesso!</h2>
-      <p>Obrigado por comprar na nossa loja. Seu pedido já está sendo encaminhado.</p>
+      <p>Obrigado por comprar na nossa loja. Seu pedido já está sendo preparado.</p>
       <button onclick="fecharModalSucesso()">Continuar Comprando</button>
     </div>
   </div>
@@ -61,15 +70,15 @@
       
       <div class="banner-slides" id="banner-slides">
         <div class="slide ativo" style="background-color: #34495e;">
-          <h2> PROMOÇÃO DE INVERNO</h2>
+          <h2>🚀 PROMOÇÃO DE INVERNO</h2>
           <p>Até 40% OFF em Periféricos High-End</p>
         </div>
         <div class="slide" style="background-color: #27ae60;">
-          <h2> FRETE GRÁTIS</h2>
-          <p>Em compras acima de R$ 9999,00 para todo o Brasil</p>
+          <h2>⚡ FRETE GRÁTIS</h2>
+          <p>Em compras acima de R$ 199,00 para todo o Brasil</p>
         </div>
         <div class="slide" style="background-color: #8e44ad;">
-          <h2> ESPAÇO GAMER</h2>
+          <h2>🎮 ESPAÇO GAMER</h2>
           <p>Monte seu setup dos sonhos em até 12x sem juros</p>
         </div>
       </div>
